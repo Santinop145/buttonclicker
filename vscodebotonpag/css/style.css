@@ -1,0 +1,13 @@
+* {
+    font-family: monospace;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    background-color: red;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
