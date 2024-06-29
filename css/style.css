@@ -1,0 +1,29 @@
+* {
+    font-family: monospace;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    background-color: red;
+    border: 5px outset black;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    transition: width 0.3s, height 0.3s, border 0.1s, transform 0.2s;
+}
+input:active{
+    border: 10px outset black;
+    width: 95px;
+    height: 95px;
+    transform: rotate(15deg);
+    transition: width 0.3s, height 0.3s, border 0.1s, transform 0.2s;
+}
