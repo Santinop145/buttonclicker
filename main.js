@@ -4,14 +4,10 @@ function handleSubmit(event){
     let respuesta = document.createElement('h2');
     if (document.querySelector('h2'))
         document.querySelector('h2').remove();
-    if (i==1){
-        respuesta.textContent = 'Apretaste el boton' + ' ' + i + ' ' + 'vez';
-    }
-    else{
-        respuesta.textContent = 'Apretaste el boton' + ' ' + i + ' ' + 'veces';
-    }
+        respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
     event.target.append(respuesta);
     document.getElementById('button').play();
     event.target.reset();
     i++;
 }
+
