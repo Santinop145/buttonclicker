@@ -17,5 +17,5 @@ function handleSubmit(event){
 function achievement(){
     let logro = document.createElement('h3');
     logro.textContent = '¡Clickeaste 500 veces!';
-    document.body.append(logro);
+    document.body.appendChild(logro);
 }
