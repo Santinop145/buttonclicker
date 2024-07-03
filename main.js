@@ -12,6 +12,6 @@ function handleSubmit(event){
         let logro = document.createElement('h3');
         logro.textContent = 'Clickeaste 500 veces'
         event.target.append(logro);
-    event.target.reset()
+    event.target.reset();
 }
 
