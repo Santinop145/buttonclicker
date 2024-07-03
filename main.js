@@ -8,10 +8,6 @@ function handleSubmit(event){
     event.target.append(respuesta);
     document.getElementById('button').play();
     i++;
-    if (i == 500)
-        let logro = document.createElement('h3');
-        logro.textContent = 'Clickeaste 500 veces';
-        event.target.append(logro);
     event.target.reset();
 }
 
