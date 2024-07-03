@@ -9,5 +9,9 @@ function handleSubmit(event){
     document.getElementById('button').play();
     event.target.reset();
     i++;
+    if (i == 500)
+        let logro = document.createElement('h3');
+        logro.textContent = 'Clickeaste 500 veces'
+        event.target.append(logro);
 }
 
