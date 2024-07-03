@@ -11,3 +11,10 @@ function handleSubmit(event){
     event.target.reset();
 }
 
+function achievement(){
+    if (i == 500){
+        let logro = document.createElement('h3');
+        logro.textContent = '¡Clickeaste 500 veces!'
+        body.append(logro);
+    }
+}
