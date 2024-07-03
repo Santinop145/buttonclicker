@@ -16,15 +16,17 @@ input{
     background: radial-gradient(red, rgb(175, 0, 0));
     border: 5px outset black;
     border-radius: 100%;
+    box-shadow: 0px 0px 3px 2px black;
     width: 100px;
     height: 100px;
-    transition: width 0.6s, height 0.6s, border 0.2s, transform 0.5s, background 0.6s;
+    transition: width 0.6s, height 0.6s, border 0.2s, transform 0.5s, background 0.6s, box-shadow 0.2s;
 }
 input:active{
     background: radial-gradient(red, rgb(150, 0, 0));
     border: 8px outset black;
+    box-shadow: 0px 0px 4px 3px black;
     width: 95px;
     height: 95px;
     transform: rotate(20deg);
-    transition: width 0.3s, height 0.3s, border 0.1s, transform 0.2s, background 0.5s;
+    transition: width 0.3s, height 0.3s, border 0.1s, transform 0.2s, background 0.5s, box-shadow 0.2s;
 }
