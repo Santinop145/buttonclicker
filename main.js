@@ -24,4 +24,9 @@ function achievement(){
 
 function autoclick(){
     i++;
+    if (document.querySelector('h2')){
+        document.querySelector('h2').remove();
+        respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
+        document.body.appendChild(respuesta);
+    }
 }
