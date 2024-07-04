@@ -22,17 +22,20 @@ function autoclick(){
 }
 
 function upgradeAutoclick(){
-    if (j < 1 && i >= precio + 1){
+    if (j < 1 && i >= precio){
         let autoclicker = setInterval(autoclick, 1000);
-        j++;
-    }
-    else if (i >= precio + 1){
-        i -= precio;
-        j += 1;
         document.getElementById('celebration').play();
+        i -= precio;
+        j++;
+        precio += 50;
+    }
+    else if (i >= precio){
+        document.getElementById('celebration').play();
+        i -= precio;
+        j++;
+        precio += 50;
     }
     else{
         alert("No tienes clicks disponibles");
     }
-    precio += 50;
 }
