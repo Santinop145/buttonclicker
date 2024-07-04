@@ -16,6 +16,11 @@ function handleSubmit(event){
 
 function achievement(){
     let logro = document.createElement('h3');
-    logro.textContent = '¡Clickeaste 500 veces!';
+    logro.textContent = '¡Clickeaste 500 veces! (Obtuviste un autoclicker)';
     document.body.appendChild(logro);
+    let autoclicker = setInterval(autoclick, 1000);
+}
+
+function autoclick(){
+    i++;
 }
