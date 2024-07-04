@@ -5,7 +5,7 @@ function handleSubmit(event){
     if (document.querySelector('h2'))
         document.querySelector('h2').remove();
         respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
-    event.target.append(respuesta);
+    document.body.appendChild(respuesta);
     document.getElementById('button').play();
     if (i == 500){
         achievement();
