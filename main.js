@@ -1,5 +1,5 @@
 let i = 1;
-button.onclick = function buttonClicked(){
+document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
     let respuesta = document.createElement('h2');
     if (document.querySelector('h2'))
