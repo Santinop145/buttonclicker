@@ -9,10 +9,9 @@ document.getElementById('boton').onclick = function buttonClicked(){
         achievement();
     }
     i++;
-    event.target.reset();
 }
 
-setInterval(updateClicks, 50)
+setInterval(updateClicks, 10)
 
 function updateClicks(){
     clicks.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
