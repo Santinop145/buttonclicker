@@ -80,10 +80,10 @@ function buyVipX2(){
         vipx2comprado = 1;
         document.getElementById('vipbuy').play();
     }
-    else if (vipx2comprado => 1){
+    else if (vipx2comprado >= 1){
         alert('¡Ya has comprado esta mejora!')
     }
     else{
-        alert("No tienes suficientes clicks");
+        alert("No tienes suficientes clicks.");
     }
 }
