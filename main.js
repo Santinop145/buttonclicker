@@ -1,4 +1,4 @@
-let i = 1;
+let i = 0;
 let clicks = document.createElement('h2');
 document.body.appendChild(clicks);
 
@@ -12,7 +12,7 @@ document.getElementById('boton').onclick = function buttonClicked(){
     event.target.reset();
 }
 
-setInterval(updateClicks, 250)
+setInterval(updateClicks, 50)
 
 function updateClicks(){
     clicks.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
