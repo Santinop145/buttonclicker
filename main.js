@@ -7,7 +7,7 @@ div.appendChild(clicks);
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
     document.getElementById('button').play();
-    if (i == 500){
+    if (i == 250){
         achievement();
     }
     i++;
@@ -20,7 +20,7 @@ function updateClicks(){
 }
 function achievement(){
     let logro = document.createElement('h3');
-    logro.textContent = '¡Clickeaste 500 veces! (Obtuviste un autoclicker)';
+    logro.textContent = '¡Clickeaste 250 veces! (Desbloqueaste el autoclicker)';
     document.body.appendChild(logro);
     document.getElementById('celebration').play();
     let autoclicker = setInterval(autoclick, 1000);
@@ -31,11 +31,11 @@ function autoclick(){
 }
 
 function upgradeAutoclick(){
-    if (i >= 500 && i > 100 || j > 1 && i > 100){
-        i -= 100
+    if (i >= 500 && i > 300 || j > 1 && i > 300){
+        i -= 300
         j += 1
     }
     else{
-        alert("No es posible mejorar ahora mismo, desbloquea el autoclicker o revisa que tengas mas de 100 clicks disponibles.")
+        alert("No es posible mejorar ahora mismo, desbloquea el autoclicker a los 250 clicks o revisa que tengas mas de 100 clicks disponibles.")
     }
 }
