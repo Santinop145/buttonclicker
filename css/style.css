@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
 }
-button{
+button.boton{
     background: radial-gradient(red, rgb(175, 0, 0));
     border: 5px outset black;
     border-radius: 100%;
@@ -13,7 +13,7 @@ button{
     height: 100px;
     transition: width 0.6s, height 0.6s, border 0.2s, transform 0.5s, background 0.6s, box-shadow 0.2s;
 }
-button:active{
+button.boton:active{
     background: radial-gradient(red, rgb(150, 0, 0));
     border: 8px outset black;
     box-shadow: 0px 0px 4px 3px black;
