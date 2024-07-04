@@ -37,15 +37,15 @@
     background: radial-gradient(gray, black);
     border: 5px solid black;
     box-shadow: 0px 0px 1px 1px black;
-    width: 150px;
-    height: 75px;
+    width: 200px;
+    height: 125px;
     transition: width 0.3s, height 0.3s;
 }
 .shop:active{
     background: radial-gradient(blue, lightblue);
     border: 5px solid black;
     box-shadow: 0px 0px 3px 2px black;
-    width: 140px;
-    height: 65px;
+    width: 190px;
+    height: 115px;
     transition: width 0.3s, height 0.3s;
 }
