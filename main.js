@@ -11,6 +11,7 @@ document.getElementById('boton').onclick = function buttonClicked(){
         achievement();
     }
     i++;
+    document.getElementById('boton').blur();
     event.target.reset();
 }
 
