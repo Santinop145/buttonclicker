@@ -36,6 +36,6 @@ function upgradeAutoclick(){
         j += 1
     }
     else{
-        alert("No es posible mejorar ahora mismo, desbloquea el autoclicker a los 250 clicks o revisa que tengas mas de 100 clicks disponibles.")
+        alert("No es posible mejorar ahora mismo, desbloquea el autoclicker a los 250 clicks y revisa que tengas mas de 100 clicks disponibles.")
     }
 }
