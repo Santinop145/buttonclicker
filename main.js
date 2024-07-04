@@ -2,10 +2,7 @@ let i = 1;
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
     let respuesta = document.createElement('h2');
-    if (document.querySelector('h2'))
-        document.querySelector('h2').remove();
-        respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
-    document.body.appendChild(respuesta);
+    setInterval(updateClicks, 500)
     document.getElementById('button').play();
     if (i == 500){
         achievement();
@@ -13,7 +10,11 @@ document.getElementById('boton').onclick = function buttonClicked(){
     i++;
     event.target.reset();
 }
-
+function updateClicks(){
+        document.querySelector('h2').remove();
+        respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
+        document.body.appendChild(respuesta);
+}
 function achievement(){
     let logro = document.createElement('h3');
     logro.textContent = '¡Clickeaste 500 veces! (Obtuviste un autoclicker)';
@@ -24,9 +25,4 @@ function achievement(){
 
 function autoclick(){
     i++;
-    if (document.querySelector('h2')){
-        document.querySelector('h2').remove();
-        respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
-        document.body.appendChild(respuesta);
-    }
 }
