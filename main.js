@@ -13,7 +13,7 @@ document.getElementById('boton').onclick = function buttonClicked(){
     i++;
 }
 
-setInterval(updateClicks, 10)
+setInterval(updateClicks, 10);
 
 function updateClicks(){
     clicks.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
