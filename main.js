@@ -1,5 +1,5 @@
 let i = 1;
-function handleSubmit(event){
+function buttonClicked(event){
     event.preventDefault();
     let respuesta = document.createElement('h2');
     if (document.querySelector('h2'))
