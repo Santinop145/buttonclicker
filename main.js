@@ -1,6 +1,8 @@
 let i = 0;
+let j = 1;
 let clicks = document.createElement('h2');
-document.body.appendChild(clicks);
+let div = document.getElementById('buttonpanel');
+div.appendChild(clicks);
 
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
@@ -25,5 +27,17 @@ function achievement(){
 }
 
 function autoclick(){
-    i++;
+    i += j;
+}
+
+function upgradeAutoclick(){
+    if (i >= 500 && i > 100 || j > 1 && i > 100){
+        i -= 100
+        j += 1
+    }
+    else{
+        alert("No es posible mejorar ahora mismo, desbloquea el autoclicker o revisa que tengas mas de 100 clicks disponibles.")
+    }
+}
+
 }
