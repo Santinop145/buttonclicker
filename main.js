@@ -1,8 +1,9 @@
 let i = 1;
+let clicks = document.createElement('h2');
+document.body.appendChild(clicks);
+
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
-    let respuesta = document.createElement('h2');
-    setInterval(updateClicks, 500)
     document.getElementById('button').play();
     if (i == 500){
         achievement();
@@ -10,10 +11,11 @@ document.getElementById('boton').onclick = function buttonClicked(){
     i++;
     event.target.reset();
 }
+
+setInterval(updateClicks, 250)
+
 function updateClicks(){
-        document.querySelector('h2').remove();
-        respuesta.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
-        document.body.appendChild(respuesta);
+    clicks.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
 }
 function achievement(){
     let logro = document.createElement('h3');
