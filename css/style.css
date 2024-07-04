@@ -27,8 +27,15 @@
     margin: auto;
     background: radial-gradient(rgb(155, 155, 155), gray);
     border: 4px dotted black;
+    box-shadow: 0px 0px 4px 4px rgb(155, 155, 155);
     width: 50vh;
     height: 75vh;
+    justify-content: center;
+    align-items: center;
+}
+.shoppanel{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -37,15 +44,35 @@
     background: radial-gradient(gray, black);
     border: 5px solid black;
     box-shadow: 0px 0px 1px 1px black;
-    width: 200px;
-    height: 125px;
-    transition: width 0.3s, height 0.3s;
+    margin: 0.2%;
+    width: 250px;
+    height: 150px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
 }
 .shop:active{
     background: radial-gradient(blue, lightblue);
     border: 5px solid black;
     box-shadow: 0px 0px 3px 2px black;
-    width: 190px;
-    height: 115px;
-    transition: width 0.3s, height 0.3s;
+    width: 240px;
+    height: 140px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.vipshop{
+    color: black;
+    background: radial-gradient(gold, goldenrod);
+    border: 6px outset goldenrod;
+    box-shadow: 0px 0px 4px 4px rgb(255, 255, 136);
+    margin: 0.2%;
+    width: 250px;
+    height: 150px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.vipshop:active{
+    color: black;
+    background: radial-gradient(gold, goldenrod);
+    border: 6px outset goldenrod;
+    box-shadow: 0px 0px 5px 5px rgb(255, 255, 136);
+    width: 240px;
+    height: 140px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
 }
