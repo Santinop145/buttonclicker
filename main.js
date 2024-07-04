@@ -1,5 +1,6 @@
 let i = 0;
 let j = 0;
+let precio = 200;
 let clicks = document.createElement('h2');
 let div = document.getElementById('buttonpanel');
 div.appendChild(clicks);
@@ -21,16 +22,17 @@ function autoclick(){
 }
 
 function upgradeAutoclick(){
-    if (j < 1){
+    if (j < 1 && i >= precio + 1){
         let autoclicker = setInterval(autoclick, 1000);
         j++;
     }
-    else if (i >= 201){
-        i -= 200
-        j += 1
+    else if (i >= precio + 1){
+        i -= precio;
+        j += 1;
         document.getElementById('celebration').play();
     }
     else{
-        alert("No tienes clicks disponibles")
+        alert("No tienes clicks disponibles");
     }
+    precio += 50;
 }
