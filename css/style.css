@@ -4,16 +4,17 @@
     justify-content: center;
     align-items: center;
 }
-button.boton{
+.boton{
     background: radial-gradient(red, rgb(175, 0, 0));
     border: 5px outset black;
     border-radius: 100%;
     box-shadow: 0px 0px 3px 2px black;
+    margin-top: 50%;
     width: 100px;
     height: 100px;
     transition: width 0.6s, height 0.6s, border 0.2s, transform 0.5s, background 0.6s, box-shadow 0.2s;
 }
-button.boton:active{
+.boton:active{
     background: radial-gradient(red, rgb(150, 0, 0));
     border: 8px outset black;
     box-shadow: 0px 0px 4px 3px black;
@@ -22,19 +23,29 @@ button.boton:active{
     transform: rotate(20deg);
     transition: width 0.3s, height 0.3s, border 0.1s, transform 0.2s, background 0.5s, box-shadow 0.2s;
 }
-button.shop{
-    background: radial-gradient(black, gray);
+.buttonpanel{
+    margin: auto;
+    background: radial-gradient(rgb(155, 155, 155), gray);
+    border: 4px dotted black;
+    width: 50vh;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+}
+.shop{
+    color: white;
+    background: radial-gradient(gray, black);
     border: 5px solid black;
-    box-shadow: 0px 0px 3px 2px black;
-    width: 100px;
-    height: 50px;
+    box-shadow: 0px 0px 1px 1px black;
+    width: 150px;
+    height: 75px;
     transition: width 0.3s, height 0.3s;
 }
-button.active{
-    background: radial-gradient(black, gray);
+.shop:active{
+    background: radial-gradient(blue, lightblue);
     border: 5px solid black;
     box-shadow: 0px 0px 3px 2px black;
-    width: 90px;
-    height: 40px;
+    width: 140px;
+    height: 65px;
     transition: width 0.3s, height 0.3s;
 }
