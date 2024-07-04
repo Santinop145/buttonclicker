@@ -39,5 +39,3 @@ function upgradeAutoclick(){
         alert("No es posible mejorar ahora mismo, desbloquea el autoclicker o revisa que tengas mas de 100 clicks disponibles.")
     }
 }
-
-}
