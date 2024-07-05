@@ -26,18 +26,6 @@ function autoclick(){
     clicks += upgradeaclick * aclickers;
 }
 
-function denied3(){
-    document.getElementById('shop3').classList.toggle('shopdenied');
-}
-
-function denied2(){
-    document.getElementById('shop2').classList.toggle('shopdenied');
-}
-
-function denied1(){
-    document.getElementById('shop1').classList.toggle('shopdenied');
-}
-
 function buyManualClick(){
     if(clicks >= preciomanual){
     manualclick++;
@@ -46,8 +34,6 @@ function buyManualClick(){
     preciomanual += 50;
     }
     else{
-        document.getElementById('shop3').classList.toggle('shopdenied');
-        deniedvar = setTimeout(denied3, 100);
         new Audio('./audio/error.mp3').play();
     }
 }
@@ -72,13 +58,9 @@ function buyAutoclick(){
     }
     else if(aclickers == 10){
         new Audio('./audio/error.mp3').play();
-        document.getElementById('shop2').classList.toggle('shopdenied');
-        deniedvar = setTimeout(denied2, 100);
     }
     else{
         new Audio('./audio/error.mp3').play();
-        document.getElementById('shop2').classList.toggle('shopdenied');
-        deniedvar = setTimeout(denied2, 100);
     }
 }
 
@@ -91,14 +73,10 @@ function upgradeAutoclick(){
     }
     else if(aclickers == 0){
         new Audio('./audio/error.mp3').play();
-        document.getElementById('shop1').classList.toggle('shopdenied');
-        deniedvar = setTimeout(denied1, 100);
     }
     else{
         new Audio('./audio/error.mp3').play();
         new Audio('./audio/error.mp3').play();
-        document.getElementById('shop1').classList.toggle('shopdenied');
-        deniedvar = setTimeout(denied1, 100);
     }
 }
 
