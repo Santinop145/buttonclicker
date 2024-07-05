@@ -8,16 +8,19 @@
 </head>
 <body>
     <h1>Button Clicker</h1>
-    <div class="buttonpanel" id="buttonpanel"><button class="boton" id="boton" tabindex="-1" onclick="buttonClicked()" onmousedown="event.preventDefault();"></button></div>
+    <div class="buttonpanel" id="buttonpanel">
+        <button class="boton" id="boton" tabindex="-1" onclick="buttonClicked()" onmousedown="event.preventDefault();"></button>
+    </div>
     <hr>
-    <div class="shoppanel"><button class="shop" id="shop1" tabindex="-1" onclick="upgradeAutoclick()" onmousedown="event.preventDefault();">Mejorar Autoclick (+1 CPS). Precio inicial: 200. +50 cada mejora.</button>
-    <button class="shop" id="shop2" tabindex="-1" onclick="buyAutoclick()" onmousedown="event.preventDefault();">Comprar Autoclick (Cada autoclick tiene sus CPS independientes). Precio inicial: 500. +250 cada compra.</button>
-    <button class="shop" id="shop3" tabindex="-1" onclick="buyManualClick()" onmousedown="event.preventDefault();">Mejorar Click Manual. Precio inicial: 100. +50 cada compra.</button></div>
+    <div class="shoppanel">
+        <button class="shop" id="shop1" tabindex="-1" onclick="upgradeAutoclick()" onmousedown="event.preventDefault();">Mejorar Autoclick (+1 CPS). Precio inicial: 200. +50 cada mejora.</button>
+        <button class="shop" id="shop2" tabindex="-1" onclick="buyAutoclick()" onmousedown="event.preventDefault();">Comprar Autoclick (Cada autoclick tiene sus CPS independientes). Precio inicial: 500. +250 cada compra.</button>
+        <button class="shop" id="shop3" tabindex="-1" onclick="buyManualClick()" onmousedown="event.preventDefault();">Mejorar Click Manual. Precio inicial: 100. +50 cada compra.</button>
+    </div>
     <hr>
-    <div class="shoppanel"><button class="vipshop" id="vipshop1" tabindex="-1" onclick="buyVipX2()" onmousedown="event.preventDefault();">x2 TOTAL a los autoclicks. Precio: 10000.</button></div>
+    <div class="shoppanel">
+        <button class="vipshop" id="vipshop1" tabindex="-1" onclick="buyVipX2()" onmousedown="event.preventDefault();">x2 TOTAL a los autoclicks. Precio: 10000.</button>
+    </div>
 </body>
 <script src="main.js"></script>
-<audio id="button" src="./audio/button.mp3"></audio>
-<audio id="celebration" src="./audio/celebration.mp3"></audio>
-<audio id="vipbuy" src="./audio/vipbuy.mp3"></audio>
 </html>

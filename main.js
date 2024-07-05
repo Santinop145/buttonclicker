@@ -12,7 +12,7 @@ div.appendChild(clickvalue);
 
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
-    document.getElementById('button').play();
+    new Audio('./audio/button.mp3').play();
     clicks += manualclick;
 }
 
@@ -26,28 +26,42 @@ function autoclick(){
     clicks += upgradeaclick * aclickers;
 }
 
+function denied3(){
+    document.getElementById('shop3').classList.toggle('shopdenied');
+}
+
+function denied2(){
+    document.getElementById('shop2').classList.toggle('shopdenied');
+}
+
+function denied1(){
+    document.getElementById('shop1').classList.toggle('shopdenied');
+}
+
 function buyManualClick(){
     if(clicks >= preciomanual){
     manualclick++;
-    document.getElementById('celebration').play();
+    new Audio('./audio/buy.mp3').play();
     clicks -= preciomanual;
     preciomanual += 50;
     }
     else{
-        alert("No tienes suficientes clicks");
+        document.getElementById('shop3').classList.toggle('shopdenied');
+        deniedvar = setTimeout(denied3, 100);
+        new Audio('./audio/error.mp3').play();
     }
 }
 function buyAutoclick(){
     if(aclickers == 0 && clicks >= precioclicker){
         autoclicker = setInterval(autoclick, 1000);
-        document.getElementById('celebration').play();
+        new Audio('./audio/buy.mp3').play();
         aclickers++; 
         upgradeaclick++;
         clicks -= precioclicker;
         precioclicker += 250;
     }
     else if(aclickers < 10 && clicks >= precioclicker){
-        document.getElementById('celebration').play();
+        new Audio('./audio/buy.mp3').play();
         clicks -= precioclicker;
         aclickers++;
         precioclicker += 250;
@@ -56,24 +70,35 @@ function buyAutoclick(){
             document.getElementById('shop2').classList.remove('shop');
         }
     }
-    else if(aclickers == 10){}
+    else if(aclickers == 10){
+        new Audio('./audio/error.mp3').play();
+        document.getElementById('shop2').classList.toggle('shopdenied');
+        deniedvar = setTimeout(denied2, 100);
+    }
     else{
-        alert("No tienes suficientes clicks");
+        new Audio('./audio/error.mp3').play();
+        document.getElementById('shop2').classList.toggle('shopdenied');
+        deniedvar = setTimeout(denied2, 100);
     }
 }
 
 function upgradeAutoclick(){
     if (clicks >= preciomejora && aclickers >= 1){
-        document.getElementById('celebration').play();
+        new Audio('./audio/buy.mp3').play();
         clicks -= preciomejora;
         upgradeaclick++;
         preciomejora += 50;
     }
     else if(aclickers == 0){
-        alert("Debes comprar un autoclicker primero.")
+        new Audio('./audio/error.mp3').play();
+        document.getElementById('shop1').classList.toggle('shopdenied');
+        deniedvar = setTimeout(denied1, 100);
     }
     else{
-        alert("No tienes suficientes clicks");
+        new Audio('./audio/error.mp3').play();
+        new Audio('./audio/error.mp3').play();
+        document.getElementById('shop1').classList.toggle('shopdenied');
+        deniedvar = setTimeout(denied1, 100);
     }
 }
 
@@ -83,12 +108,13 @@ function buyVipX2(){
         setInterval(autoclick, 500);
         clicks -= 10000;
         vipx2comprado = true;
-        document.getElementById('vipbuy').play();
-        document.getElementById('vipshop1').classList.add('vipbought');
-        document.getElementById('vipshop1').classList.remove('vipshop');
+        new Audio('./audio/vipbuy.mp3').play();
+        document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
     }
-    else if (vipx2comprado == true){}
+    else if (vipx2comprado == true){
+        new Audio('./audio/error.mp3').play();
+    }
     else{
-        alert("No tienes suficientes clicks.");
+        new Audio('./audio/error.mp3').play();
     }
 }
