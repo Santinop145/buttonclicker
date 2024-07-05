@@ -1,36 +1,36 @@
-let i = 0;
-let j = 0;
-let k = 0;
-let l = 1;
-let vipx2comprado = 0;
+let clicks = 0;
+let upgradeaclick = 0;
+let aclickers = 0;
+let manualclick = 1;
+let vipx2comprado = false;
 let preciomanual = 100;
 let preciomejora = 200;
 let precioclicker = 500;
-let clicks = document.createElement('h2');
+let clickvalue = document.createElement('h2');
 let div = document.getElementById('buttonpanel');
-div.appendChild(clicks);
+div.appendChild(clickvalue);
 
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
     document.getElementById('button').play();
-    i += l;
+    clicks += manualclick;
 }
 
 setInterval(updateClicks, 10);
 
 function updateClicks(){
-    clicks.textContent = 'Clicks' + ' ' + '=' + ' ' + i;
+    clickvalue.textContent = 'Clicks = ' + clicks;
 }
 
 function autoclick(){
-    i += j * k;
+    clicks += upgradeaclick * aclickers;
 }
 
 function buyManualClick(){
-    if(i >= preciomanual){
-    l++;
+    if(clicks >= preciomanual){
+    manualclick++;
     document.getElementById('celebration').play();
-    i -= preciomanual;
+    clicks -= preciomanual;
     preciomanual += 50;
     }
     else{
@@ -38,34 +38,39 @@ function buyManualClick(){
     }
 }
 function buyAutoclick(){
-    if(k == 0 && i >= precioclicker){
+    if(aclickers == 0 && clicks >= precioclicker){
         autoclicker = setInterval(autoclick, 1000);
         document.getElementById('celebration').play();
-        k++; 
-        j++;
-        i -= precioclicker;
+        aclickers++; 
+        upgradeaclick++;
+        clicks -= precioclicker;
         precioclicker += 250;
     }
-    else if(k < 10 && i >= precioclicker){
+    else if(aclickers < 10 && clicks >= precioclicker){
         document.getElementById('celebration').play();
-        i -= precioclicker;
-        k++;
+        clicks -= precioclicker;
+        aclickers++;
         precioclicker += 250;
+        if(aclickers > 9){
+            document.getElementById('shop2').classList.add('shopbought');
+            document.getElementById('shop2').classList.remove('shop');
+        }
     }
-    else if(k == 10){
-        alert("Has alcanzado el limite de autoclickers");
-    }
+    else if(aclickers == 10){}
     else{
         alert("No tienes suficientes clicks");
     }
 }
 
 function upgradeAutoclick(){
-    if (i >= preciomejora){
+    if (clicks >= preciomejora && aclickers >= 1){
         document.getElementById('celebration').play();
-        i -= preciomejora;
-        j++;
+        clicks -= preciomejora;
+        upgradeaclick++;
         preciomejora += 50;
+    }
+    else if(aclickers == 0){
+        alert("Debes comprar un autoclicker primero.")
     }
     else{
         alert("No tienes suficientes clicks");
@@ -73,16 +78,16 @@ function upgradeAutoclick(){
 }
 
 function buyVipX2(){
-    if (i >= 10000 && vipx2comprado == 0){
+    if (clicks >= 10000 && !vipx2comprado){
         clearInterval(autoclicker);
         setInterval(autoclick, 500);
-        i -= 10000;
-        vipx2comprado = 1;
+        clicks -= 10000;
+        vipx2comprado = true;
         document.getElementById('vipbuy').play();
+        document.getElementById('vipshop1').classList.add('vipbought');
+        document.getElementById('vipshop1').classList.remove('vipshop');
     }
-    else if (vipx2comprado >= 1){
-        alert('¡Ya has comprado esta mejora!')
-    }
+    else if (vipx2comprado == true){}
     else{
         alert("No tienes suficientes clicks.");
     }

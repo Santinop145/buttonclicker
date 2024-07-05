@@ -4,6 +4,12 @@
     justify-content: center;
     align-items: center;
 }
+h1{
+    color: white;
+}
+body{
+    background: radial-gradient(black, rgb(43, 43, 43))
+}
 .boton{
     background: radial-gradient(red, rgb(175, 0, 0));
     border: 5px outset black;
@@ -35,26 +41,36 @@
 }
 .shoppanel{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 .shop{
     color: white;
-    background: radial-gradient(gray, black);
-    border: 5px solid black;
-    box-shadow: 0px 0px 1px 1px black;
+    background: radial-gradient(black, rgb(62, 91, 109));
+    border: 5px double rgb(109, 167, 204);
+    box-shadow: 0px 0px 1px 1px rgb(109, 167, 204);
     margin: 0.2%;
     width: 250px;
     height: 150px;
     transition: width 0.3s, height 0.3s, box-shadow 0.3s;
 }
 .shop:active{
-    background: radial-gradient(blue, lightblue);
-    border: 5px solid black;
-    box-shadow: 0px 0px 3px 2px black;
+    background: radial-gradient(black, rgb(62, 91, 109));
+    border: 5px double cyan;
+    box-shadow: 0px 0px 4px 3px cyan;
     width: 240px;
     height: 140px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.shopbought{
+    color: white;
+    background: radial-gradient(black, rgb(14, 20, 24));
+    border: 5px double rgb(50, 54, 56);
+    margin: 0.2%;
+    width: 250px;
+    height: 150px;
     transition: width 0.3s, height 0.3s, box-shadow 0.3s;
 }
 .vipshop{
@@ -74,5 +90,15 @@
     box-shadow: 0px 0px 5px 5px rgb(255, 255, 136);
     width: 240px;
     height: 140px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.vipbought{
+    color: black;
+    background: radial-gradient(rgb(138, 119, 15), rgb(92, 67, 5));
+    border: 6px outset rgb(122, 92, 15);
+    box-shadow: 0px 0px 2px 2px brown;
+    margin: 0.2%;
+    width: 250px;
+    height: 150px;
     transition: width 0.3s, height 0.3s, box-shadow 0.3s;
 }
