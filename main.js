@@ -19,11 +19,11 @@ document.getElementById('boton').onclick = function buttonClicked(){
 setInterval(updateClicks, 10);
 
 function updateClicks(){
-    clickvalue.textContent = 'Clicks = ' + clicks;
+    clickvalue.textContent = 'Clicks = ' + clicks.toFixed(0);
 }
 
 function autoclick(){
-    clicks += upgradeaclick * aclickers;
+    clicks += upgradeaclick * aclickers / 10;
 }
 
 function buyManualClick(){
@@ -39,7 +39,7 @@ function buyManualClick(){
 }
 function buyAutoclick(){
     if(aclickers == 0 && clicks >= precioclicker){
-        autoclicker = setInterval(autoclick, 1000);
+        autoclicker = setInterval(autoclick, 100);
         new Audio('./audio/buy.mp3').play();
         aclickers++; 
         upgradeaclick++;
@@ -76,14 +76,13 @@ function upgradeAutoclick(){
     }
     else{
         new Audio('./audio/error.mp3').play();
-        new Audio('./audio/error.mp3').play();
     }
 }
 
 function buyVipX2(){
     if (clicks >= 10000 && !vipx2comprado){
         clearInterval(autoclicker);
-        setInterval(autoclick, 500);
+        setInterval(autoclick, 50);
         clicks -= 10000;
         vipx2comprado = true;
         new Audio('./audio/vipbuy.mp3').play();
@@ -96,3 +95,12 @@ function buyVipX2(){
         new Audio('./audio/error.mp3').play();
     }
 }
+
+function toggleShop(){
+    document.getElementById('shoppanel').classList.toggle('shoppanel')
+}
+
+function toggleVipShop(){
+    document.getElementById('vipshoppanel').classList.toggle('vipshoppanel')
+}
+
