@@ -2,6 +2,9 @@ let clicks = 0;
 let upgradeaclick = 0;
 let aclickers = 0;
 let manualclick = 1;
+let autoUpgrader = 0;
+let autoUpgradeTime = undefined;
+let autoUpgradeOn = false;
 let vipx2comprado = false;
 let vipt2comprado = false;
 let preciomanual = 100;
@@ -18,6 +21,13 @@ document.getElementById('boton').onclick = function buttonClicked(){
 }
 
 setInterval(updateClicks, 10);
+
+function autoUpgrade(){
+    if(autoUpgrader == 1 && clicks >= 500){
+        upgradeaclick++;
+        clicks -= 500
+    }
+}
 
 function updateClicks(){
     clickvalue.textContent = 'Clicks = ' + clicks.toFixed(0);
@@ -80,6 +90,26 @@ function upgradeAutoclick(){
     }
 }
 
+function buyAutoupgrader(){
+    if (clicks >= 15000 && autoUpgrader == 0){
+        new Audio('./audio/buy.mp3').play();
+        clicks -= 15000;
+        autoUpgrader++;
+        autoUpgradeOn = true;
+    }
+    if(autoUpgradeOn == true && autoUpgrader == 1){
+        autoUpgradeOn = !autoUpgradeOn;
+        autoUpgradeTime = setInterval(autoUpgrade, 2000);
+    }
+    else if (autoUpgradeOn == false){
+        autoUpgradeOn = !autoUpgradeOn;
+        clearInterval(autoUpgradeTime);
+    }
+    else{
+        new Audio('./audio/error.mp3').play();
+    }
+}
+
 function buyVipX2(){
     if (clicks >= 25000 && !vipx2comprado){
         clearInterval(autoclicker);
@@ -101,16 +131,6 @@ function toggleShop(){
     document.getElementById('shoppanel').classList.toggle('shoppanel')
 }
 
-function toggleSecShop(){
-    if(document.getElementById('secshoppanel')){
-        document.getElementById('secshoppanel').classList.toggle('secshoppanel')
-    }
-    else{
-        new Audio('./audio/error.mp3').play();
-    }
-}
-
-
 function toggleVipShop(){
     document.getElementById('vipshoppanel').classList.toggle('vipshoppanel')
 }
@@ -131,3 +151,11 @@ function VipShopBuyShop2(){
     }
 }
 
+function toggleSecShop(){
+    if(document.getElementById('secshopopen').classList.contains('secshopopen')){
+        document.getElementById('secshoppanel').classList.toggle('secshoppanel');
+    }
+    else{
+        new Audio('./audio/error.mp3').play();
+    }
+}
