@@ -3,6 +3,7 @@ let upgradeaclick = 0;
 let aclickers = 0;
 let manualclick = 1;
 let vipx2comprado = false;
+let vipt2comprado = false;
 let preciomanual = 100;
 let preciomejora = 200;
 let precioclicker = 500;
@@ -80,10 +81,10 @@ function upgradeAutoclick(){
 }
 
 function buyVipX2(){
-    if (clicks >= 10000 && !vipx2comprado){
+    if (clicks >= 25000 && !vipx2comprado){
         clearInterval(autoclicker);
         setInterval(autoclick, 50);
-        clicks -= 10000;
+        clicks -= 25000;
         vipx2comprado = true;
         new Audio('./audio/vipbuy.mp3').play();
         document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
@@ -100,7 +101,33 @@ function toggleShop(){
     document.getElementById('shoppanel').classList.toggle('shoppanel')
 }
 
+function toggleSecShop(){
+    if(document.getElementById('secshoppanel')){
+        document.getElementById('secshoppanel').classList.toggle('secshoppanel')
+    }
+    else{
+        new Audio('./audio/error.mp3').play();
+    }
+}
+
+
 function toggleVipShop(){
     document.getElementById('vipshoppanel').classList.toggle('vipshoppanel')
+}
+
+function VipShopBuyShop2(){
+    if(clicks >= 20000 && !vipt2comprado){
+        clicks -= 20000;
+        vipt2comprado == true;
+        document.getElementById('secshopopen').classList.replace('secshoplocked', 'secshopopen')
+        new Audio('./audio/vipbuy.mp3').play();
+        document.getElementById('vipshop2').classList.replace('vipshop', 'vipbought');
+    }
+    else if (vipt2comprado == true){
+        new Audio('./audio/error.mp3').play();
+    }
+    else{
+        new Audio('./audio/error.mp3').play();
+    }
 }
 

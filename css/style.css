@@ -75,7 +75,38 @@ body{
 .closedshop{
     display: none;
 }
+.secshoplocked{    
+    color: white;
+    background: radial-gradient(rgb(0, 29, 5), rgb(0, 82, 48));
+    border: 5px double rgb(0, 51, 27);
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgb(0, 255, 138);
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.secshopopen{
+    color: white;
+    background: radial-gradient(rgb(0, 131, 22), rgb(0, 82, 48));
+    border: 5px double rgb(0, 255, 138);
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgb(0, 255, 138);
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.secshopopen:active{
+    color: white;
+    background: radial-gradient(rgb(0, 131, 22), rgb(0, 82, 48));
+    border: 6px double rgb(0, 255, 138);
+    border-radius: 3px;
+    box-shadow: 0px 0px 2px 2px rgb(0, 255, 138);
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
 .shoppanel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.secshoppanel{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -95,6 +126,18 @@ body{
     border: 5px double rgb(109, 167, 204);
     border-radius: 2px;
     box-shadow: 0px 0px 1px 1px rgb(109, 167, 204);
+    margin: 0.5%;
+    padding: 1%;
+    width: 250px;
+    height: 150px;
+    transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+}
+.secshop{
+    color: white;
+    background: radial-gradient(rgb(0, 131, 22), rgb(0, 82, 48));
+    border: 5px double rgb(0, 255, 128);
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgb(0, 255, 82);
     margin: 0.5%;
     padding: 1%;
     width: 250px;
