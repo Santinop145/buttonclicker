@@ -7,6 +7,36 @@
 h1{
     color: white;
 }
+footer{
+    color: white;
+}
+footer a{
+    color: lime;
+}
+aside{
+    width: 105px;
+    height: 36px;
+    margin: auto;
+    margin-top: 10px;
+}
+aside button{
+    width: 100px;
+    height: 36px;
+    color: rgb(238, 238, 238);
+    box-shadow: 0px 0px 6px 3px red;
+    background: radial-gradient(darkred, rgb(180, 0, 0));
+    border: 2px dotted red;
+    transition: border 0.1s, width 0.1s, box-shadow 0.1s;
+}
+aside button:active{
+    width: 105px;
+    height: 36px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px 2px rgb(190, 0, 0);
+    background: radial-gradient(rgb(102, 0, 0), rgb(134, 0, 0));
+    border: 3px dotted rgb(211, 0, 0);
+    transition: border 0.1s, width 0.1s, box-shadow 0.1s;
+}
 body{
     background: radial-gradient(black, rgb(43, 43, 43))
 }
@@ -14,7 +44,7 @@ body{
     background: radial-gradient(red, rgb(175, 0, 0));
     border: 5px outset black;
     border-radius: 100%;
-    box-shadow: 0px 0px 3px 2px black;
+    box-shadow: 0px 0px 15px 2px black;
     margin-top: 50%;
     width: 100px;
     height: 100px;
@@ -23,7 +53,7 @@ body{
 .boton:active{
     background: radial-gradient(red, rgb(150, 0, 0));
     border: 8px outset black;
-    box-shadow: 0px 0px 4px 3px black;
+    box-shadow: 0px 0px 20px 1px black;
     width: 95px;
     height: 95px;
     transform: rotate(20deg);
@@ -33,7 +63,7 @@ body{
     margin: auto;
     background: radial-gradient(rgb(155, 155, 155), gray);
     border: 4px dotted black;
-    box-shadow: 0px 0px 4px 4px rgb(155, 155, 155);
+    box-shadow: 0px 0px 10px 2px rgb(155, 155, 155);
     width: 50vh;
     height: 75vh;
     justify-content: center;
@@ -114,6 +144,7 @@ body{
     align-items: center;
 }
 .vipshoppanel{
+    gap: 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -194,7 +225,7 @@ body{
     background: radial-gradient(gold, goldenrod);
     border: 6px outset goldenrod;
     border-radius: 2px;
-    box-shadow: 0px 0px 4px 4px rgb(255, 255, 136);
+    box-shadow: 0px 0px 8px 3px rgb(255, 255, 136);
     margin: 0.5%;
     width: 250px;
     height: 150px;
@@ -205,7 +236,7 @@ body{
     background: radial-gradient(gold, goldenrod);
     border: 6px outset goldenrod;
     border-radius: 3px;
-    box-shadow: 0px 0px 5px 5px rgb(255, 255, 136);
+    box-shadow: 0px 0px 10px 2px rgb(255, 255, 136);
     width: 240px;
     height: 140px;
     transition: width 0.3s, height 0.3s, box-shadow 0.3s;
