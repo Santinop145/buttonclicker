@@ -7,7 +7,6 @@ let autoUpgradeTime = undefined;
 let autoUpgradeOn = false;
 let vipx2comprado = false;
 let vipt2comprado = false;
-let defaultDataStored = false;
 let precioManual = 100;
 let precioMejora = 200;
 let precioClicker = 500;
@@ -163,26 +162,6 @@ function toggleSecShop(){
 
 //almacenamiento de datos
 
-function recoverGameData(){
-    clicks = +localStorage.getItem('clicks');
-    manualClicks = +localStorage.getItem('manualClicks');
-    precioManual = +localStorage.getItem('precioManual');
-    precioMejora = +localStorage.getItem('precioMejora');
-    precioClicker = +localStorage.getItem('precioClicker');
-    autoClickers = +localStorage.getItem('autoClickers');
-    upgradedAutoClicker = +localStorage.getItem('upgradedAutoClicker');
-    vipx2comprado = localStorage.getItem('vipx2comprado');
-    vipt2comprado = localStorage.getItem('vipt2comprado');
-    autoUpgradeOn = localStorage.getItem('autoUpgradeOn');
-    hasPlayed =localStorage.getItem('hasPlayed');
-    if(vipx2comprado == 1){
-            document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
-        }
-    if(vipt2comprado == 1){
-        document.getElementById('vipshop2').classList.replace('vipshop', 'vipbought');
-        }
-}
-
 function storeGameData(){
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('manualClicks', manualClicks);
@@ -194,12 +173,29 @@ function storeGameData(){
     localStorage.setItem('vipx2comprado', vipx2comprado);
     localStorage.setItem('vipt2comprado', vipt2comprado);
     localStorage.setItem('autoUpgradeOn', autoUpgradeOn);
-    defaultDataStored = true;
 }
 
-if(!defaultDataStored){
-    storeGameData();
+function recoverGameData(){
+    if(autoUpgradeOn = localStorage.getItem('clicks') != null){
+    clicks = +localStorage.getItem('clicks');
+    manualClicks = +localStorage.getItem('manualClicks');
+    precioManual = +localStorage.getItem('precioManual');
+    precioMejora = +localStorage.getItem('precioMejora');
+    precioClicker = +localStorage.getItem('precioClicker');
+    autoClickers = +localStorage.getItem('autoClickers');
+    upgradedAutoClicker = +localStorage.getItem('upgradedAutoClicker');
+    vipx2comprado = localStorage.getItem('vipx2comprado');
+    vipt2comprado = localStorage.getItem('vipt2comprado');
+    autoUpgradeOn = localStorage.getItem('autoUpgradeOn');
+    if(vipx2comprado == 1){
+            document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
+        }
+    if(vipt2comprado == 1){
+        document.getElementById('vipshop2').classList.replace('vipshop', 'vipbought');
+        }
+    }
 }
+
 recoverGameData();
 
 setInterval(storeGameData, 10000);
