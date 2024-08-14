@@ -33,7 +33,7 @@ function updateClicks(){
     clickValue.textContent = 'Clicks = ' + clicks.toFixed(0);
 }
 
-function autoclick(){
+function autoClick(){
     clicks += upgradedAutoClicker * autoClickers / 10;
 }
 
@@ -50,10 +50,10 @@ function buyManualClick(){
 }
 function buyAutoclick(){
     if(autoClickers == 0 && clicks >= precioClicker){
-        autoClicker = setInterval(autoclick, 100);
+        setInterval(autoClick, 100);
         new Audio('./audio/buy.mp3').play();
         autoClickers++; 
-        upgradedAutoclicker++;
+        upgradedAutoClicker++;
         clicks -= precioClicker;
         precioClicker += 250;
     }
@@ -111,9 +111,9 @@ function buyAutoUpgrader(){
 }
 
 function buyVipX2(){
-    if (clicks >= 25000 && !vipx2comprado){
-        clearInterval(autoClicker);
-        setInterval(autoclick, 50);
+    if (clicks >= 25000 && !vipx2comprado && autoClickers >= 1){
+        clearInterval(autoClick);
+        setInterval(autoClick, 50);
         clicks -= 25000;
         vipx2comprado = true;
         new Audio('./audio/vipbuy.mp3').play();
@@ -128,18 +128,18 @@ function buyVipX2(){
 }
 
 function toggleShop(){
-    document.getElementById('shoppanel').classList.toggle('shoppanel')
+    document.getElementById('shoppanel').classList.toggle('shoppanel');
 }
 
 function toggleVipShop(){
-    document.getElementById('vipshoppanel').classList.toggle('vipshoppanel')
+    document.getElementById('vipshoppanel').classList.toggle('vipshoppanel');
 }
 
 function VipShopBuyShop2(){
-    if(clicks >= 20000 && !vipt2comprado){
+    if(clicks >= 20000 && vipt2comprado == false){
         clicks -= 20000;
-        vipt2comprado == true;
-        document.getElementById('secshopopen').classList.replace('secshoplocked', 'secshopopen')
+        vipt2comprado = true;
+        document.getElementById('secshopopen').classList.replace('secshoplocked', 'secshopopen');
         new Audio('./audio/vipbuy.mp3').play();
         document.getElementById('vipshop2').classList.replace('vipshop', 'vipbought');
     }
@@ -187,12 +187,18 @@ function recoverGameData(){
     vipx2comprado = localStorage.getItem('vipx2comprado');
     vipt2comprado = localStorage.getItem('vipt2comprado');
     autoUpgradeOn = localStorage.getItem('autoUpgradeOn');
-    if(vipx2comprado == 1){
-            document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
-        }
-    if(vipt2comprado == 1){
+    if(autoClickers >= 1){
+        setInterval(autoClick, 100)
+    }
+    if(vipt2comprado){
         document.getElementById('vipshop2').classList.replace('vipshop', 'vipbought');
+        document.getElementById('secshopopen').classList.replace('secshoplocked', 'secshopopen');
         }
+    if(vipx2comprado){
+        clearInterval(autoClick)
+        setInterval(autoClick, 50)
+        document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
+    }
     }
 }
 
