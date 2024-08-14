@@ -1,73 +1,73 @@
 let clicks = 0;
-let upgradeaclick = 0;
-let aclickers = 0;
-let manualclick = 1;
+let upgradedAutoClicker = 0;
+let autoClickers = 0;
+let manualClicks = 1;
 let autoUpgrader = 0;
 let autoUpgradeTime = undefined;
 let autoUpgradeOn = false;
 let vipx2comprado = false;
 let vipt2comprado = false;
-let preciomanual = 100;
-let preciomejora = 200;
-let precioclicker = 500;
-let clickvalue = document.createElement('h2');
+let precioManual = 100;
+let precioMejora = 200;
+let precioClicker = 500;
+let clickValue = document.createElement('h2');
 let div = document.getElementById('buttonpanel');
-div.appendChild(clickvalue);
+div.appendChild(clickValue);
 
 document.getElementById('boton').onclick = function buttonClicked(){
     event.preventDefault();
     new Audio('./audio/button.mp3').play();
-    clicks += manualclick;
+    clicks += manualClicks;
 }
 
 setInterval(updateClicks, 10);
 
 function autoUpgrade(){
     if(autoUpgrader == 1 && clicks >= 500){
-        upgradeaclick++;
+        upgradedAutoClicker++;
         clicks -= 500
     }
 }
 
 function updateClicks(){
-    clickvalue.textContent = 'Clicks = ' + clicks.toFixed(0);
+    clickValue.textContent = 'Clicks = ' + clicks.toFixed(0);
 }
 
 function autoclick(){
-    clicks += upgradeaclick * aclickers / 10;
+    clicks += upgradedAutoClicker * autoClickers / 10;
 }
 
 function buyManualClick(){
-    if(clicks >= preciomanual){
-    manualclick++;
+    if(clicks >= precioManual){
+    manualClicks++;
     new Audio('./audio/buy.mp3').play();
-    clicks -= preciomanual;
-    preciomanual += 50;
+    clicks -= precioManual;
+    precioManual += 50;
     }
     else{
         new Audio('./audio/error.mp3').play();
     }
 }
 function buyAutoclick(){
-    if(aclickers == 0 && clicks >= precioclicker){
-        autoclicker = setInterval(autoclick, 100);
+    if(autoClickers == 0 && clicks >= precioClicker){
+        autoClicker = setInterval(autoclick, 100);
         new Audio('./audio/buy.mp3').play();
-        aclickers++; 
-        upgradeaclick++;
-        clicks -= precioclicker;
-        precioclicker += 250;
+        autoClickers++; 
+        upgradedAutoclicker++;
+        clicks -= precioClicker;
+        precioClicker += 250;
     }
-    else if(aclickers < 10 && clicks >= precioclicker){
+    else if(autoClickers < 10 && clicks >= precioClicker){
         new Audio('./audio/buy.mp3').play();
-        clicks -= precioclicker;
-        aclickers++;
-        precioclicker += 250;
-        if(aclickers > 9){
+        clicks -= precioClicker;
+        autoClickers++;
+        precioClicker += 250;
+        if(autoClickers > 9){
             document.getElementById('shop2').classList.add('shopbought');
             document.getElementById('shop2').classList.remove('shop');
         }
     }
-    else if(aclickers == 10){
+    else if(autoClickers == 10){
         new Audio('./audio/error.mp3').play();
     }
     else{
@@ -75,14 +75,14 @@ function buyAutoclick(){
     }
 }
 
-function upgradeAutoclick(){
-    if (clicks >= preciomejora && aclickers >= 1){
+function upgradeAutoClick(){
+    if (clicks >= precioMejora && autoClickers >= 1){
         new Audio('./audio/buy.mp3').play();
-        clicks -= preciomejora;
-        upgradeaclick++;
-        preciomejora += 50;
+        clicks -= precioMejora;
+        upgradedAutoClicker++;
+        precioMejora += 50;
     }
-    else if(aclickers == 0){
+    else if(autoClickers == 0){
         new Audio('./audio/error.mp3').play();
     }
     else{
@@ -90,7 +90,7 @@ function upgradeAutoclick(){
     }
 }
 
-function buyAutoupgrader(){
+function buyAutoUpgrader(){
     if (clicks >= 15000 && autoUpgrader == 0){
         new Audio('./audio/buy.mp3').play();
         clicks -= 15000;
@@ -112,7 +112,7 @@ function buyAutoupgrader(){
 
 function buyVipX2(){
     if (clicks >= 25000 && !vipx2comprado){
-        clearInterval(autoclicker);
+        clearInterval(autoClicker);
         setInterval(autoclick, 50);
         clicks -= 25000;
         vipx2comprado = true;
@@ -159,3 +159,41 @@ function toggleSecShop(){
         new Audio('./audio/error.mp3').play();
     }
 }
+
+//almacenamiento de datos
+
+function recoverGameData(){
+    clicks = +localStorage.getItem('clicks');
+    manualClicks = +localStorage.getItem('manualClicks');
+    precioManual = +localStorage.getItem('precioManual');
+    precioMejora = +localStorage.getItem('precioMejora');
+    precioClicker = +localStorage.getItem('precioClicker');
+    autoClickers = +localStorage.getItem('autoClickers');
+    upgradedAutoClicker = +localStorage.getItem('upgradedAutoClicker');
+    vipx2comprado = localStorage.getItem('vipx2comprado');
+    vipt2comprado = localStorage.getItem('vipt2comprado');
+    autoUpgradeOn = localStorage.getItem('autoUpgradeOn');
+        if(vipx2comprado == 1){
+            document.getElementById('vipshop1').classList.replace('vipshop', 'vipbought');
+        }
+        if(vipt2comprado == 1){
+        document.getElementById('vipshop2').classList.replace('vipshop', 'vipbought');
+        }
+}
+
+function storageGameData(){
+    localStorage.setItem('clicks', clicks);
+    localStorage.setItem('manualClicks', manualClicks);
+    localStorage.setItem('precioManual', precioManual);
+    localStorage.setItem('precioMejora', precioMejora);
+    localStorage.setItem('precioClicker', precioClicker);
+    localStorage.setItem('autoClickers', autoClickers);
+    localStorage.setItem('upgradedAutoClicker', upgradedAutoClicker);
+    localStorage.setItem('vipx2comprado', vipx2comprado);
+    localStorage.setItem('vipt2comprado', vipt2comprado);
+    localStorage.setItem('autoUpgradeOn', autoUpgradeOn);
+}
+
+setInterval(storageGameData, 10000);
+recoverGameData();
+storageGameData();
