@@ -166,10 +166,10 @@ function storeGameData(){
     localStorage.setItem('precioClicker', precioClicker);
     localStorage.setItem('autoClickers', autoClickers);
     localStorage.setItem('upgradedAutoClicker', upgradedAutoClicker);
-    if(document.getElementById('vipshop1').classList.contains('vipshop')){
+    if(document.getElementById('vipshop1').classList.contains('vipbought')){
         localStorage.setItem('vipx2comprado', true);
     }
-    if(document.getElementById('vipshop2').classList.contains('vipshop')){
+    if(document.getElementById('vipshop2').classList.contains('vipbought')){
         localStorage.setItem('vipt2comprado', true);
     }
     localStorage.setItem('autoUpgradeOn', autoUpgradeOn);
